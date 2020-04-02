@@ -6,7 +6,6 @@
  */
 
 require_once("init.php");
-
 $bot = new TestBot();
 $bot->replyCommand();
 

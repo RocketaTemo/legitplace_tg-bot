@@ -192,39 +192,14 @@ class TelegramBot{
 	 * Shows form and register webhook on telegram side
 	 */
 	function showWebhookForm(){
-		$html = <<<EOF
-<!DOCTYPE html><html lang="ru">
-<head><meta charset="UTF-8"><title>Setting Webhook</title></head>
-<body style="text-align: center">
-	<h2>Setting telegram bot webhook</h2>
-	<form action="" method="get">
-		<p>
-			<input type="text" name="url" placeholder="bot url" value="https://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}">
-			<br>https protocol required
-		</p>
-		<p>
-			<input type="text" name="token" placeholder="token">
-			<br>Talk to <a href="https://telegram.me/botfather" target="_blank">@BotFather</a>, to get it
-		</p>
-		<button type="submit">Set webhook</button>
-	</form>
-</body>
-</html>
-EOF;
-		if( !empty( $_GET ) ){
-
 			$this->api = new TelegramBotApi( "1173580773:AAG87b2w0T3CLo61FzqKZplxofLk7BlzwpQ" );
-			$res = $this->api->setWebhook( "3.17.146.85/" );
+			$res = $this->api->setWebhook( "https://" . $_SERVER['HTTP_HOST']. "/"."1173580773:AAG87b2w0T3CLo61FzqKZplxofLk7BlzwpQ" );
 			if( $res['ok'] ){
 				echo "Webhook is set! Fill token in your bot source to make it working!";
 			}
 			else{
 				echo "Something wrong: " . $res['description'];
 			}
-		}
-		else{
-			echo $html;
-		}
 
 		exit;
 	}
