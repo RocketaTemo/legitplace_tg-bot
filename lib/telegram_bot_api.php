@@ -30,7 +30,7 @@ class TelegramBotApi{
 	 * @link https://core.telegram.org/bots/api#setwebhook
 	 */
 	public function setWebhook( $bot_url ){
-		return $this->call("setWebhook", ['url' => $bot_url] );
+		return $this->call("setWebhook", $bot_url);
 	}
 
 	/**
