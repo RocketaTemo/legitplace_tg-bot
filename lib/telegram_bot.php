@@ -214,7 +214,7 @@ EOF;
 		if( !empty( $_GET ) ){
 
 			$this->api = new TelegramBotApi( "1173580773:AAG87b2w0T3CLo61FzqKZplxofLk7BlzwpQ" );
-			$res = $this->api->setWebhook( "http://ec2-3-17-146-85.us-east-2.compute.amazonaws.com/" );
+			$res = $this->api->setWebhook( "3.17.146.85/" );
 			if( $res['ok'] ){
 				echo "Webhook is set! Fill token in your bot source to make it working!";
 			}
